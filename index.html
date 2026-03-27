@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="AVA-Bench: Atomic Visual Ability Benchmark for Vision Foundation Models">
+  <meta name="keywords" content="ViT PEFT">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AVA-Bench: Atomic Visual Ability Benchmark for Vision Foundation Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!--<link rel="icon" href="./static/images/favicon.svg">-->
+  
+  <link rel="icon" href="data:image/svg+xml, <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            AVA-Bench: <u>A</u>tomic <u>V</u>isual <u>A</u>bility Benchmark for Vision Foundation Models
+          </h1>
+          <!---<h1  style="color:#7d3c98;font-size: 1.875em;font-weight: bold;">
+              arxiv'25
+          </h1> --->
+          <br>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">
+              <a href="https://zheda-mai.github.io/">Zheda Mai</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://arpita-chowdhury-osu.github.io/">Arpita Chowdhury</a><sup>1*</sup>,<br>
+            </span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">
+              <a href="">Zihe Wang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Sooyoung Jeon</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Lemeng Wang</a><sup>1</sup>,
+            </span>            
+            <span class="author-block">
+              <a href="">Jiacheng Hou</a><sup>1</sup>,
+            </span>
+<!--             <span class="author-block">
+              <a href="https://heendung.github.io/">Jihyung Kil</a><sup>2</sup>,
+            </span> -->
+            <span class="author-block">
+              <a href="https://sites.google.com/view/wei-lun-harry-chao?pli=1">Wei-Lun Chao</a><sup>1</sup>
+            </span> 
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The Ohio State University,</span>
+<!--             <span class="author-block"><sup>2</sup>Adobe Research</span> -->
+          </div>
+
+          <div>
+            <p style="font-size: 15px !important;">*Equal Contribution</p>
+            <p style="font-size: 15px !important;">{mai.145, chowdhury.150}@osu.edu</p>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!---
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2506.09082"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Arxiv</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Data(Coming Soon)</span>
+                </a>
+              </span>
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code(Coming Soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Figure_1-->
+<figure style="text-align: center;">
+  <img src="Figures/ava_every_sample-1.png" alt="14 AVA Samples" style="width: 900px; max-width: 1400px; height: auto; display: block; margin: 0 auto;">
+  <figcaption style="text-align: center;"><em>AVA-BENCH consists of 14 Atomic Visual Abilities (AVAs) that can be combined to address more
+    complex visual reasoning tasks.</em></figcaption>
+</figure>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The rise of vision foundation models (VFMs) calls for systematic evaluation. A
+            common approach pairs VFMs with large language models (LLMs) as general-
+            purpose heads, followed by evaluation on broad Visual Question Answering (VQA)
+            benchmarks. However, this protocol has two key blind spots: (i) the instruction
+            tuning data may not align with VQA test distributions, meaning a wrong prediction
+            can stem from such data mismatch rather than a VFM’ visual shortcomings; (ii)
+            VQA benchmarks often require multiple visual abilities, making it hard to tell
+            whether errors stem from lacking all required abilities or just a single critical
+            one. To address these gaps, we introduce AVA-BENCH, the first benchmark that
+            explicitly disentangles 14 Atomic Visual Abilities (AVAs)—foundational skills like
+            localization, depth estimation, and spatial understanding that collectively support
+            complex visual reasoning tasks. By decoupling AVAs and matching training and
+            test distributions within each, AVA-BENCH pinpoints exactly where a VFM excels
+            or falters. Applying AVA-BENCH to leading VFMs thus reveals distinctive “ability
+            fingerprints,” turning VFM selection from educated guesswork into principled
+            engineering. Notably, we find that a 0.5B LLM yields similar VFM rankings as a
+            7B LLM while cutting GPU hours by 8×, enabling more efficient evaluation. By
+            offering a comprehensive and transparent benchmark, we hope AVA-BENCH lays
+            the foundation for the next generation of VFMs.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<!-- Figure_2-->
+<figure style="text-align: center;">
+  <img src="Figures/sample_two_image.png" alt="14 AVA Samples" style="width: 900px; max-width: 1400px; height: auto; display: block; margin: 0 auto;">
+  <figcaption style="text-align: center;"><em>Visual Question Answering (VQA) often requires multiple atomic visual abilities (AVAs)
+    to answer a question.</em></figcaption>
+</figure>
+<br>
+
+
+
+<!-- Modified Highlights & Insights Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="column is-centered has-text-centered">
+      <h2 class="title is-3">Contributions</h2>
+      <!-- Flex container to hold the text and the figure side-by-side -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start;">
+        <!-- Text content (list of contributions) -->
+        <div class="content has-text-justified" style="flex: 2; min-width: 300px; padding: 10px;">
+          <ul>
+            <li>
+              <strong>Systematic Benchmark of Visual Abilities</strong>: We identify critical blind spots in existing evaluation protocols and introduce AVA-BENCH, a systematic, diagnostic, and comprehensive <span style="color:red; font-weight:bold;">VFM evaluation benchmark covering 14 atomic visual abilities (AVAs)</span>, with carefully curated 218K samples with 26 datasets.
+            </li>
+            <li>
+              <strong>Actionable VFM Analysis</strong>: We conduct a detailed evaluation and insightful analysis of diverse leading VFMs, deriving actionable guidance for VFM selection in downstream applications such as customized MLLMs.
+            </li>
+            <li>
+              <strong>Lightweight, Open Evaluation Protocol</strong>: We release a resource-efficient evaluation protocol along with an open-source codebase to facilitate the development of the next generation of accountable and versatile VFMs.
+            </li>
+          </ul>
+        </div>
+        <!-- Figure with image and caption -->
+        <figure style="flex: 1; min-width: 250px; padding: 10px; text-align: center;">
+          <img src="Figures/sunburst_chart_final.png" alt="14 AVA Samples Description" style="width: 100%; height: auto; display: block; margin: 0 auto;">
+          <figcaption style="text-align: center;">Overall statistics of AVA-BENCH</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Visual Effects. -->
+    <div class="column is-centered has-text-centered">
+      <h2 class="title is-3">Highlights of Insights</h2>
+      <figure style="text-align: center;">
+        <img src="Figures/image.png" alt="14 AVA Samples" style="width: 900px; max-width: 1400px; height: auto; display: block; margin: 0 auto;">
+        <figcaption style="text-align: center;">Performance comparison of VFMs across all AVAs. (Left) Language-Supervised VFMs with DINOv2
+          as a reference. (Right) Other VFMs with the SigLIP-2 as a reference.</figcaption>
+      </figure>  
+    </div>
+    <!--/ Visual Effects. -->
+    <!-- Flex container to hold the text and the figure side-by-side -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start;">
+      <!-- Text content (list of contributions) -->
+      <div class="content has-text-justified" style="flex: 2; min-width: 300px; padding: 10px;">
+        <ul>
+          <li><strong>Language</strong>-supervised VFMs excel broadly across AVAs.</li>
+          <li><strong>All</strong> VFMs perform <strong>well</strong> in certain AVAs (<em>e.g.,</em> relative depth, object recognition).</li>
+          <li>Non-language-aligned VFMs consistently fail <strong>OCR</strong> tasks.</li>
+          <li>Even lower-performing VFMs excel in <strong>at least one</strong> AVA.</li>
+          <li>VFMs perform similarly for <strong>large</strong> objects. Poor performance in some VFMs is mainly due to struggles in <strong>small</strong> objects.</li>
+          <li>Composite task failures typically stem from specific AVA deficiencies rather than general visual incompetence. With Bounding box, all VFMs perform perfectly in spatial AVA; without them, models with weaker localization  perform worse</li>
+        </ul>
+      </div>
+      <!-- Figure with image and caption -->
+      <figure style="flex: 1; min-width: 250px; padding: 10px; text-align: center;">
+        <img src="Figures/localization_vs_spatial.png" alt="14 AVA Samples Description" style="width: 100%; height: auto; display: block; margin: 0 auto;">
+        <figcaption style="text-align: center;"><em>Impact of bounding boxes on spatial reasoning performance.</em> </figcaption>
+      </figure>
+    </div>
+    <figure style="flex: 1; min-width: 250px; padding: 10px; text-align: center;">
+      <img src="Figures/Localization.png" alt="14 AVA Samples Description" style="width: 100%; height: auto; display: block; margin: 0 auto;">
+      <figcaption style="text-align: center;"><em>Detail results for localization for overall and different splits based on the ground-truth’s
+        bounding box size normalized by image size.</em> </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@article{mai2025ava,
+  title={AVA-Bench: Atomic Visual Ability Benchmark for Vision Foundation Models},
+  author={Mai, Zheda and Chowdhury, Arpita and Wang, Zihe and Jeon, Sooyoung and Wang, Lemeng and Hou, Jiacheng and Kil, Jihyung and Chao, Wei-Lun},
+  journal={arXiv preprint arXiv:2506.09082},
+  year={2025}
+}
+    </code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+            Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
