@@ -1,311 +1,512 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="AVA-Bench: Atomic Visual Ability Benchmark for Vision Foundation Models">
-  <meta name="keywords" content="ViT PEFT">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AVA-Bench: Atomic Visual Ability Benchmark for Vision Foundation Models</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <!--<link rel="icon" href="./static/images/favicon.svg">-->
-  
-  <link rel="icon" href="data:image/svg+xml, <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-</head>
-<body>
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">
-            AVA-Bench: <u>A</u>tomic <u>V</u>isual <u>A</u>bility Benchmark for Vision Foundation Models
-          </h1>
-          <!---<h1  style="color:#7d3c98;font-size: 1.875em;font-weight: bold;">
-              arxiv'25
-          </h1> --->
-          <br>
-          <div class="is-size-6 publication-authors">
-            <span class="author-block">
-              <a href="https://zheda-mai.github.io/">Zheda Mai</a><sup>1*</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://arpita-chowdhury-osu.github.io/">Arpita Chowdhury</a><sup>1*</sup>,<br>
-            </span>
-          </div>
-          <div class="is-size-6 publication-authors">
-            <span class="author-block">
-              <a href="">Zihe Wang</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="">Sooyoung Jeon</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="">Lemeng Wang</a><sup>1</sup>,
-            </span>            
-            <span class="author-block">
-              <a href="">Jiacheng Hou</a><sup>1</sup>,
-            </span>
-<!--             <span class="author-block">
-              <a href="https://heendung.github.io/">Jihyung Kil</a><sup>2</sup>,
-            </span> -->
-            <span class="author-block">
-              <a href="https://sites.google.com/view/wei-lun-harry-chao?pli=1">Wei-Lun Chao</a><sup>1</sup>
-            </span> 
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>The Ohio State University,</span>
-<!--             <span class="author-block"><sup>2</sup>Adobe Research</span> -->
-          </div>
-
-          <div>
-            <p style="font-size: 15px !important;">*Equal Contribution</p>
-            <p style="font-size: 15px !important;">{mai.145, chowdhury.150}@osu.edu</p>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <!---
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              -->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2506.09082"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>Arxiv</span>
-                </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href=""
-                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Data(Coming Soon)</span>
-                </a>
-              </span>
-              
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code(Coming Soon)</span>
-                </a>
-              </span>
-            </div>
-          </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revisiting Model Stitching in the Foundation Model Era</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <p class="venue">CVPR 2026</p>
+        <h1>
+          Revisiting Model Stitching
+          <br />
+          <span class="title-line-2">in the Foundation Model Era</span>
+        </h1>
+        <p class="subtitle">
+          Can heterogeneous Vision Foundation Models (VFMs) be stitched, fused,
+          and served more efficiently?
+        </p>
+        <div class="authors">
+          <span class="author primary-author"><a href="https://zheda-mai.github.io/">Zheda Mai</a><sup>1,3</sup>*</span>
+          <span class="author">Ke Zhang<sup>3</sup></span>
+          <span class="author">Fu-En Wang<sup>3</sup></span>
+          <span class="author author-line-end">Zixiao Ken Wang<sup>3</sup></span>
+          <span class="author-break" aria-hidden="true"></span>
+          <span class="author">Albert Y. C. Chen<sup>3</sup></span>
+          <span class="author">Lu Xia<sup>3</sup></span>
+          <span class="author"><a href="https://aliensunmin.github.io/">Min Sun</a><sup>3</sup></span>
+          <span class="author"><a href="https://sites.google.com/view/wei-lun-harry-chao/home">Wei-Lun Chao</a><sup>2</sup></span>
+          <span class="author">Cheng-Hao Kuo<sup>3</sup></span>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Figure_1-->
-<figure style="text-align: center;">
-  <img src="Figures/ava_every_sample-1.png" alt="14 AVA Samples" style="width: 900px; max-width: 1400px; height: auto; display: block; margin: 0 auto;">
-  <figcaption style="text-align: center;"><em>AVA-BENCH consists of 14 Atomic Visual Abilities (AVAs) that can be combined to address more
-    complex visual reasoning tasks.</em></figcaption>
-</figure>
+        <div class="affiliation-logos">
+          <div class="affiliation-pill">
+            <img src="Figures/osu.jpg" alt="Ohio State logo" />
+            <span><sup>1</sup>The Ohio State University</span>
+          </div>
+          <div class="affiliation-pill">
+            <img src="Figures/bu.svg" alt="Boston University logo" />
+            <span><sup>2</sup>Boston University</span>
+          </div>
+          <div class="affiliation-pill">
+            <img src="Figures/amazon.svg" alt="Amazon logo" />
+            <span><sup>3</sup>Amazon</span>
+          </div>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        </div>
+        <p class="note">* Work done during internship at Amazon.</p>
+        <div class="links">
+          <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Mai_Revisiting_Model_Stitching_In_the_Foundation_Model_Era_CVPR_2026_paper.pdf">Paper</a>
+          <a href="src_paper_slide/Stitch_CVPR_raw_to_pdf.pdf">Slides</a>
+          <a href="src_paper_slide/cvpr26_stitch.pdf">Poster</a>
+          <a href="https://github.com/RaptorMai/Model_Stitch_Vision_Foundation_Model">Code</a>
+        </div>
+        <p class="tldr">
+          <strong>TL;DR</strong>&nbsp; We revisit model stitching for Vision Foundation
+          Models (VFMs) and show that different VFMs are not only compatible, but
+          complementary. Our stitching recipe fuses their strengths and enables
+          efficient multi-VFM systems through VFM Stitch Tree.
+        </p>
+      </header>
+
+      <section class="section quick-read">
+        <h2>1-Minute Quick Read</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Card 1 — Motivation</h3>
+            <p>
+              Different VFMs, such as DINOv2 and SigLIP2, are
+              trained with different data and objectives. They share some common
+              visual abilities, but each also has unique strengths and
+              weaknesses.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Card 2 — Model Stitching</h3>
+            <p>
+              Model Stitching connects the shallow layers of one VFM to the deep
+              layers of another with a small stitch layer. If the stitched model
+              still works well, the two VFMs have compatible internal
+              representations.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Card 3 — Our Recipe</h3>
+            <p>
+              We find that naive stitching is not enough. Our two-stage recipe
+              first matches the target model’s final features, then fine-tunes
+              the stitch layer with task loss.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Card 4 — Takeaway</h3>
+            <p>
+              Stitching heterogeneous VFMs is not only possible—it can fuse
+              complementary strengths. With VFM Stitch Tree, multi-VFM systems
+              can recover much of the gain of multiple full VFMs with far
+              lower overhead.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Motivation</h2>
+        <p>
+          VFMs are trained with different datasets,
+          objectives, and modalities. They perform differently on downstream
+          tasks, raising a key question: are they fundamentally different
+          end-to-end, or are their internal representations still similar in
+          some layers?
+        </p>
+        <div class="cards">
+          <article class="card">
+            <h3>Question 1</h3>
+            <p>Can heterogeneous VFMs be stitched with minimal performance loss?</p>
+          </article>
+          <article class="card">
+            <h3>Question 2</h3>
+            <p>Can stitching do more than compatibility and fuse strengths?</p>
+          </article>
+          <article class="card">
+            <h3>Question 3</h3>
+            <p>Can this become a practical systems tool for multi-VFM efficiency?</p>
+          </article>
+        </div>
+        <div class="figure-grid motivation-figures">
+          <figure class="motivation-figure motivation-figure-vfm">
+            <img src="Figures/motivation-vfm-capabilities.png" alt="Vision foundation model capabilities screenshot" />
+            <figcaption>
+              VFMs share common visual abilities while preserving unique strengths.
+            </figcaption>
+          </figure>
+          <figure class="motivation-figure motivation-figure-diagram">
+            <img src="Figures/motivation-representation-compatibility.png" alt="Internal representation compatibility screenshot" />
+            <figcaption>
+              Are heterogeneous VFMs different end-to-end, or similar in some layers?
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Model Stitching</h2>
+        <p class="stitch-callout">
+          <span class="text-teal">Model Stitching</span>: connect the
+          <strong>shallow layers</strong> of one model to the
+          <strong>deep layers</strong> of another via a
+          <span class="text-purple">stitch layer</span> (e.g., linear or MLP)
+          to form a <span class="text-purple">stitched</span> model. If the
+          <span class="text-purple">stitched</span> model has
+          <span class="text-underline">minimal performance drop</span>, it means
+          their internal representations are <span class="text-green">similar</span>.
+        </p>
+        <figure class="stitch-demo">
+          <img src="Figures/stitch_demo.png" alt="Model stitching demonstration" />
+        </figure>
+      </section>
+
+      <section class="section">
+        <h2>Naive Stitching Fails</h2>
+        <section class="subsection lfm-section">
+          <h3>1. Layer Feature Matching</h3>
           <p>
-            The rise of vision foundation models (VFMs) calls for systematic evaluation. A
-            common approach pairs VFMs with large language models (LLMs) as general-
-            purpose heads, followed by evaluation on broad Visual Question Answering (VQA)
-            benchmarks. However, this protocol has two key blind spots: (i) the instruction
-            tuning data may not align with VQA test distributions, meaning a wrong prediction
-            can stem from such data mismatch rather than a VFM’ visual shortcomings; (ii)
-            VQA benchmarks often require multiple visual abilities, making it hard to tell
-            whether errors stem from lacking all required abilities or just a single critical
-            one. To address these gaps, we introduce AVA-BENCH, the first benchmark that
-            explicitly disentangles 14 Atomic Visual Abilities (AVAs)—foundational skills like
-            localization, depth estimation, and spatial understanding that collectively support
-            complex visual reasoning tasks. By decoupling AVAs and matching training and
-            test distributions within each, AVA-BENCH pinpoints exactly where a VFM excels
-            or falters. Applying AVA-BENCH to leading VFMs thus reveals distinctive “ability
-            fingerprints,” turning VFM selection from educated guesswork into principled
-            engineering. Notably, we find that a 0.5B LLM yields similar VFM rankings as a
-            7B LLM while cutting GPU hours by 8×, enabling more efficient evaluation. By
-            offering a comprehensive and transparent benchmark, we hope AVA-BENCH lays
-            the foundation for the next generation of VFMs.
+            <span class="text-lfm">Layer Feature Matching</span> trains the
+            stitch layer to match the source and target features at the stitch
+            position.
           </p>
+          <figure class="naive-figure naive-demo">
+            <img src="Figures/demo.png" alt="Layer feature matching demonstration" />
+          </figure>
+          <p class="problem-box">
+            <strong>Why it fails.</strong> A small mismatch at the stitch
+            position can be amplified by the frozen target layers, creating a
+            large final-feature difference.
+          </p>
+          <p>
+            The remedy is <span class="text-ffm">Final Feature Matching</span>:
+            train the
+            stitch layer so the stitched model matches the target model's final
+            representation directly.
+          </p>
+          <div class="figure-grid naive-results">
+            <figure class="naive-figure">
+              <img src="Figures/lfm_result.png" alt="Layer feature matching result" />
+              <figcaption>Layer Feature Matching can get small layer feature differences locally but can drift at the final representation. Final Feature Matching reduces final feature mismatch. </figcaption>
+            </figure>
+            <figure class="naive-figure">
+              <img src="Figures/matching_result.png" alt="Final feature matching result" />
+              <figcaption>Final Feature Matching consistently improves stitched model accuracy.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="subsection task-section">
+          <h3>2. Task-Loss Training</h3>
+          <p>
+            <span class="text-task">Task-Loss Training</span> optimizes the
+            stitch layer directly with the downstream objective, such as
+            classification loss.
+          </p>
+          <p class="problem-box">
+            <strong>Problem.</strong> It sounds natural, but shallow stitching
+            makes optimization difficult: as all post-stitch target layers are frozen, gradients must backprop through a long, fixed transformation to
+            update only the stitch layer, especially challenging for randomly initialized stitch layer.
+          </p>
+          <p>
+            On DINOv2 -> SigLIP2 stitched at layer 2, Task-Loss Training drops
+            to <strong class="text-red">25.1%</strong>, far below both original
+            models and both feature-matching strategies.
+          </p>
+          <div class="table-wrap comparison-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>DINOv2</th>
+                  <th>SigLIP2</th>
+                  <th>Layer Feature Matching</th>
+                  <th>Final Feature Matching</th>
+                  <th>Task Loss Training</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>46.7%</td>
+                  <td>53.4%</td>
+                  <td>49.4%</td>
+                  <td>51.4%</td>
+                  <td class="bad-result">25.1%</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="table-caption">DINOv2→SigLIP2 stitched at layer 2.</p>
+          </div>
+        </section>
+      </section>
+
+
+      <section class="section">
+        <h2>Our Stitching Recipe</h2>
+        <p>
+          The key is to separate representation alignment from task adaptation.
+          We first make the stitched model imitate the target VFM's final
+          representation, then use task loss only after the stitch layer has a
+          strong initialization.
+        </p>
+        <div class="recipe-overview">
+          <figure class="recipe-figure recipe-diagram">
+            <img src="Figures/my_recipe.png" alt="Two-stage stitching recipe" />
+          </figure>
+          <div class="recipe-steps">
+            <article class="card">
+              <h3>Stage 1: Align Representations</h3>
+              <p>
+                <span class="text-ffm">Final Feature Matching</span> is
+                label-free: it trains only the stitch layer so the stitched
+                model mimics the target model's final features.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Stage 2: Adapt to the Task</h3>
+              <p>
+                <span class="text-task">Task-Loss Fine-Tuning</span> then
+                specializes the aligned stitched model to the downstream
+                objective, avoiding the optimization challenges of direct task-loss training.
+              </p>
+            </article>
+          </div>
         </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-  </div>
-</section>
+        <figure class="recipe-figure recipe-result">
+          <img src="Figures/my_result.png" alt="fMoW accuracy of stitched models compared with original VFM linear probing baselines" />
+          <figcaption>
+            On fMoW, the stitched models outperform both original VFM
+            linear-probing baselines. The gains become stronger at deeper stitch
+            positions. LP: linear probing on a frozen original VFM.
+          </figcaption>
+        </figure>
+      </section>
 
-<!-- Figure_2-->
-<figure style="text-align: center;">
-  <img src="Figures/sample_two_image.png" alt="14 AVA Samples" style="width: 900px; max-width: 1400px; height: auto; display: block; margin: 0 auto;">
-  <figcaption style="text-align: center;"><em>Visual Question Answering (VQA) often requires multiple atomic visual abilities (AVAs)
-    to answer a question.</em></figcaption>
-</figure>
-<br>
+      <section class="section fusion-section">
+        <h2>Knowledge Fusion, Not Just Capacity</h2>
+        <p>
+          A stitched model has an extra trainable layer, so we need a control:
+          does the improvement come from added capacity, or from combining two
+          different VFMs?
+        </p>
+        <div class="fusion-layout">
+          <figure class="fusion-figure fusion-demo">
+            <img src="Figures/self_demo.png" alt="Self-stitch baseline illustration" />
+            <figcaption>
+              Same VFM, same training recipe, same inserted stitch layer.
+            </figcaption>
+          </figure>
+          <div class="fusion-right">
+            <article class="card fusion-card">
+              <h3><span class="text-self">Self-Stitch</span> Baseline</h3>
+              <ul>
+                <li>
+                  Insert the same stitch layer at the same stitch position into
+                  source and target models with the same training data and
+                  objective.
+                </li>
+                <li>
+                  Isolate whether improvement is only from the added capacity of
+                  the stitch layer.
+                </li>
+              </ul>
+            </article>
 
+            <figure class="fusion-figure fusion-result">
+              <img src="Figures/self.png" alt="Heterogeneous stitching compared with self-stitch baselines" />
+              <figcaption>
+                Heterogeneous stitching consistently stays above self-stitch
+                controls, suggesting the gains come from cross-model knowledge
+                fusion.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
 
+        <div class="table-wrap generality-table-wrap">
+          <table class="generality-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th colspan="3" class="group-heading">Classification</th>
+                <th class="group-heading">Segmentation</th>
+              </tr>
+              <tr>
+                <th></th>
+                <th>fMoW</th>
+                <th>iNaturalist</th>
+                <th>Aircraft</th>
+                <th>ADE20K</th>
+              </tr>
+              <tr>
+                <th>Stitch Position</th>
+                <th>6 / 14 / 22</th>
+                <th>6 / 14 / 22</th>
+                <th>6 / 14 / 22</th>
+                <th>14 / 22</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>DINOv2→DINOv2</th>
+                <td>41.5 / 59.7 / 69.9</td>
+                <td>56.9 / 81.5 / 91.2</td>
+                <td>37.8 / 79.3 / 91.2</td>
+                <td>35.4 / 50.9</td>
+              </tr>
+              <tr>
+                <th>SigLIP2→SigLIP2</th>
+                <td>50.5 / 62.0 / 68.9</td>
+                <td>71.2 / 88.5 / 87.3</td>
+                <td>67.9 / 88.1 / 89.3</td>
+                <td>44.5 / 50.5</td>
+              </tr>
+              <tr class="heterogeneous-row">
+                <th>DINOv2→SigLIP2</th>
+                <td><strong>59.8</strong> / 68.0 / 71.8</td>
+                <td>75.9 / 89.1 / <strong>92.8</strong></td>
+                <td>77.8 / 87.6 / <strong>92.4</strong></td>
+                <td>44.9 / 51.2</td>
+              </tr>
+              <tr>
+                <th>SigLIP2→DINOv2</th>
+                <td>53.8 / <strong>69.6</strong> / <strong>72.2</strong></td>
+                <td><strong>86.3</strong> / <strong>88.9</strong> / 91.9</td>
+                <td>80.7 / 89.0 / 91.0</td>
+                <td><strong>49.0</strong> / <strong>51.4</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="finding-box">
+          Stitching heterogeneous VFMs is not only feasible; it can fuse
+          <span class="text-complement">complementarity</span> between models.
+        </p>
+      </section>
 
-<!-- Modified Highlights & Insights Section -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="column is-centered has-text-centered">
-      <h2 class="title is-3">Contributions</h2>
-      <!-- Flex container to hold the text and the figure side-by-side -->
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start;">
-        <!-- Text content (list of contributions) -->
-        <div class="content has-text-justified" style="flex: 2; min-width: 300px; padding: 10px;">
+      <section class="section generality-section">
+        <h2>Generality: Not a One-off Result</h2>
+        <p>
+          The same stitching recipe generalizes across model pairs, stitch
+          positions, datasets, and both classification and segmentation tasks.
+        </p>
+        <figure class="generality-figure">
+          <img src="Figures/general.png" alt="Stitchability generalizes across tasks, datasets, models, pretraining, and stitch layer families" />
+        </figure>
+
+        <div class="key-finding-box">
+          <h3>Key Finding</h3>
           <ul>
             <li>
-              <strong>Systematic Benchmark of Visual Abilities</strong>: We identify critical blind spots in existing evaluation protocols and introduce AVA-BENCH, a systematic, diagnostic, and comprehensive <span style="color:red; font-weight:bold;">VFM evaluation benchmark covering 14 atomic visual abilities (AVAs)</span>, with carefully curated 218K samples with 26 datasets.
+              <span class="">Heterogeneous VFMs</span> trained
+              with different <span class="">data</span>,
+              <span class="">objectives</span>, and
+              <span class="">modalities</span> remain <span class="text-complement"> stitchable</span>
+              across diverse vision tasks and
+              datasets</span>.
             </li>
             <li>
-              <strong>Actionable VFM Analysis</strong>: We conduct a detailed evaluation and insightful analysis of diverse leading VFMs, deriving actionable guidance for VFM selection in downstream applications such as customized MLLMs.
-            </li>
-            <li>
-              <strong>Lightweight, Open Evaluation Protocol</strong>: We release a resource-efficient evaluation protocol along with an open-source codebase to facilitate the development of the next generation of accountable and versatile VFMs.
+              Stitched VFMs consistently outperform
+              <span class="text-self">Self-Stitch</span> baselines, indicating
+              that the gains arise not merely from the added capacity of the
+              stitch layer, but also from the
+              <span class="text-complement">complementary strengths</span> of
+              different VFMs.
             </li>
           </ul>
         </div>
-        <!-- Figure with image and caption -->
-        <figure style="flex: 1; min-width: 250px; padding: 10px; text-align: center;">
-          <img src="Figures/sunburst_chart_final.png" alt="14 AVA Samples Description" style="width: 100%; height: auto; display: block; margin: 0 auto;">
-          <figcaption style="text-align: center;">Overall statistics of AVA-BENCH</figcaption>
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
+      <section class="section vst-section">
+        <h2>VST: Share Shallow, Specialize Deep</h2>
+        <p>
+          Multi-VFM systems improve performance by combining
+          <span class="text-complement">complementary visual representations</span>,
+          but they also introduce <strong>k× memory and latency</strong> when
+          running <strong>k VFMs</strong> independently.
+        </p>
+        <div class="vst-cards">
+          <article class="card">
+            <h3>Share Shallow</h3>
+            <p>
+              Reuse common early visual processing instead of running every VFM
+              from scratch.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Specialize Deep</h3>
+            <p>
+              Keep model-specific deep branches, connected by lightweight
+              stitch layers.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Efficiency Knob</h3>
+            <p>
+              Choose the stitch position to trade off accuracy recovery against
+              memory and latency.
+            </p>
+          </article>
+        </div>
+        <div class="vst-figures">
+          <figure class="vst-figure">
+            <img src="Figures/vst_demo.png" alt="VFM Stitch Tree compared with naive multi-VFM systems" />
+            <figcaption>
+              VST shares shallow layers, then branches into specialized VFMs
+              through stitch layers.
+            </figcaption>
+          </figure>
+          <figure class="vst-figure">
+            <img src="Figures/vst_llava.png" alt="VFM Stitch Tree inside MoF-LLaVA" />
+            <figcaption>
+              In MoF-LLaVA, VST replaces independent VFM backbones with a shared
+              shallow trunk and task-useful deep branches.
+            </figcaption>
+          </figure>
+        </div>
+        <div class="vst-result-panel">
+          <figure class="vst-figure vst-result">
+            <img src="Figures/vst_result.png" alt="VST gain versus overhead compared with naive multi-VFMs" />
+          </figure>
+          <div class="vst-result-text">
+            <h3>MoF-LLaVA Result</h3>
+            <p>
+              VFM Stitch Tree (VST) shares common shallow layers and keeps
+              model-specific deep branches connected by lightweight stitch
+              layers, enabling a practical
+              <span class="text-complement">accuracy-efficiency knob</span>.
+            </p>
+            <p>
+              In MoF-LLaVA, VST recovers most of the two-VFM gain with much
+              lower overhead: <strong>VST-22</strong> uses only
+              <strong>4.3%</strong> extra resources, while
+              <strong>VST-14</strong> reaches <strong>39.0%</strong> overhead
+              and recovers substantially more gain than the low-overhead setting.
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <!-- Visual Effects. -->
-    <div class="column is-centered has-text-centered">
-      <h2 class="title is-3">Highlights of Insights</h2>
-      <figure style="text-align: center;">
-        <img src="Figures/image.png" alt="14 AVA Samples" style="width: 900px; max-width: 1400px; height: auto; display: block; margin: 0 auto;">
-        <figcaption style="text-align: center;">Performance comparison of VFMs across all AVAs. (Left) Language-Supervised VFMs with DINOv2
-          as a reference. (Right) Other VFMs with the SigLIP-2 as a reference.</figcaption>
-      </figure>  
-    </div>
-    <!--/ Visual Effects. -->
-    <!-- Flex container to hold the text and the figure side-by-side -->
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start;">
-      <!-- Text content (list of contributions) -->
-      <div class="content has-text-justified" style="flex: 2; min-width: 300px; padding: 10px;">
-        <ul>
-          <li><strong>Language</strong>-supervised VFMs excel broadly across AVAs.</li>
-          <li><strong>All</strong> VFMs perform <strong>well</strong> in certain AVAs (<em>e.g.,</em> relative depth, object recognition).</li>
-          <li>Non-language-aligned VFMs consistently fail <strong>OCR</strong> tasks.</li>
-          <li>Even lower-performing VFMs excel in <strong>at least one</strong> AVA.</li>
-          <li>VFMs perform similarly for <strong>large</strong> objects. Poor performance in some VFMs is mainly due to struggles in <strong>small</strong> objects.</li>
-          <li>Composite task failures typically stem from specific AVA deficiencies rather than general visual incompetence. With Bounding box, all VFMs perform perfectly in spatial AVA; without them, models with weaker localization  perform worse</li>
-        </ul>
-      </div>
-      <!-- Figure with image and caption -->
-      <figure style="flex: 1; min-width: 250px; padding: 10px; text-align: center;">
-        <img src="Figures/localization_vs_spatial.png" alt="14 AVA Samples Description" style="width: 100%; height: auto; display: block; margin: 0 auto;">
-        <figcaption style="text-align: center;"><em>Impact of bounding boxes on spatial reasoning performance.</em> </figcaption>
-      </figure>
-    </div>
-    <figure style="flex: 1; min-width: 250px; padding: 10px; text-align: center;">
-      <img src="Figures/Localization.png" alt="14 AVA Samples Description" style="width: 100%; height: auto; display: block; margin: 0 auto;">
-      <figcaption style="text-align: center;"><em>Detail results for localization for overall and different splits based on the ground-truth’s
-        bounding box size normalized by image size.</em> </figcaption>
-    </figure>
-
-  </div>
-</section>
-
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>
-@article{mai2025ava,
-  title={AVA-Bench: Atomic Visual Ability Benchmark for Vision Foundation Models},
-  author={Mai, Zheda and Chowdhury, Arpita and Wang, Zihe and Jeon, Sooyoung and Wang, Lemeng and Hou, Jiacheng and Kil, Jihyung and Chao, Wei-Lun},
-  journal={arXiv preprint arXiv:2506.09082},
-  year={2025}
-}
-    </code></pre>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
+      <section class="section takeaway-section">
+        <h2>Takeaways</h2>
+        <div class="takeaway-list">
+          <article class="takeaway-item">
+            <span class="takeaway-number takeaway-purple">1</span>
+            <p>Stitch layer <strong>training matters</strong>.</p>
+          </article>
+          <article class="takeaway-item">
+            <span class="takeaway-number takeaway-orange">2</span>
+            <p>Stitching <strong>fuses</strong> strengths.</p>
+          </article>
+          <article class="takeaway-item">
+            <span class="takeaway-number takeaway-blue">3</span>
+            <p>Stitching enables <strong>efficient systems</strong>.</p>
+          </article>
+        </div>
+        <div class="takeaway-summary">
           <p>
-            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-            Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+            <strong>Model Stitching</strong>, from an analytical tool to a
+            practical framework for combining the
+            <span class="text-green">complementary strengths</span> of VFMs.
           </p>
         </div>
-      </div>
+      </section>
     </div>
-  </div>
-</footer>
-
-</body>
+  </body>
 </html>
